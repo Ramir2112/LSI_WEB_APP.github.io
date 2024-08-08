@@ -14,6 +14,30 @@ let btn4 = document.getElementById("btn4");
 let btn5 = document.getElementById("btn5");
 let btn6 = document.getElementById("btn6");
 
+let buttons = [btn1, btn2, btn3, btn4, btn5, btn6];
+
+buttons.forEach((button) => {
+  button.addEventListener("click", function() {
+    if (button.textContent === "Add") {
+      button.textContent = "Delete";
+      button.style.background = "red";
+      button.style.color = "white";
+    } else {
+      button.textContent = "Add";
+      button.style.background = "rgb(248, 168, 24)";
+      button.style.color = "#fff";
+    }
+
+    if (tg.MainButton.isVisible) {
+      tg.MainButton.hide();
+    } else {
+      tg.MainButton.setText(`Вы выбрали товар ${button.id.replace("btn", "")}!`);
+      item = button.id.replace("btn", "");
+      tg.MainButton.show();
+    }
+  });
+});
+
 btn1.addEventListener("click", function(){
 	if (tg.MainButton.isVisible) {
 		tg.MainButton.hide();
@@ -94,11 +118,3 @@ p.innerText = `${tg.initDataUnsafe.user.first_name}
 ${tg.initDataUnsafe.user.last_name}`;
 
 usercard.appendChild(p);
-
-
-
-
-
-
-
-
