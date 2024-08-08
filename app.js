@@ -109,7 +109,7 @@ buttons.forEach((button) => {
 
 
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
-	tg.sendData(item);
+	tg.sendData(selectedItems);
 });
 
 
@@ -121,11 +121,3 @@ p.innerText = `${tg.initDataUnsafe.user.first_name}
 ${tg.initDataUnsafe.user.last_name}`;
 
 usercard.appendChild(p);
-
-
-
-
-
-
-
-
