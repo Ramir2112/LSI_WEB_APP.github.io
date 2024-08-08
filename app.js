@@ -16,24 +16,27 @@ let btn6 = document.getElementById("btn6");
 
 let buttons = [btn1, btn2, btn3, btn4, btn5, btn6];
 
+let selectedItems = [];
+
 buttons.forEach((button) => {
   button.addEventListener("click", function() {
     if (button.textContent === "Add") {
       button.textContent = "Delete";
       button.style.background = "red";
       button.style.color = "white";
+      selectedItems.push(button.id.replace("btn", ""));
     } else {
       button.textContent = "Add";
       button.style.background = "rgb(248, 168, 24)";
       button.style.color = "#fff";
+      selectedItems = selectedItems.filter((item) => item !== button.id.replace("btn", ""));
     }
 
-    if (tg.MainButton.isVisible) {
-      tg.MainButton.hide();
-    } else {
-      tg.MainButton.setText(`Вы выбрали товар ${button.id.replace("btn", "")}!`);
-      item = button.id.replace("btn", "");
+    if (selectedItems.length > 0) {
+      tg.MainButton.setText(`Вы выбрали товары: ${selectedItems.join(", ")}`);
       tg.MainButton.show();
+    } else {
+      tg.MainButton.hide();
     }
   });
 });
