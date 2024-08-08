@@ -13,7 +13,7 @@ body {
 .inner {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 260px 210px 210px;
+	grid-template-rows: 250px 200px 200px;
 }
 
 .img {
@@ -44,19 +44,3 @@ body {
 .usercard {
 	text-align: center;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
